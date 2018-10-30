@@ -44,14 +44,21 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 " Close current buffer
-map <leader>bd :bdelete<cr>
+" map <leader>bd :bdelete<cr>
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all buffers
-map <leader>ba :BufOnly<cr>
-map <leader>tn :tabnext<cr>
+map <leader>ba :bufdo bd<cr>
+" close all buffers except this one
+map <leader>bo :BufOnly<cr>
+
+map <leader>tn :tabnext<cr>   
+"also gt
 map <leader>tp :tabprevious<cr>
+" alse gT
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tt :tabnew<cr>
+map <leader>tf :tabfind 
 map <leader>tm :tabmove
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -64,8 +71,8 @@ map <leader>pp :setlocal paste!<cr>
 
 vnoremap gv :call VisualSelection('gv', '')<CR>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
+vnoremap <silent> * :call VisualSelection('b')<CR>
+vnoremap <silent> # :call VisualSelection('f')<CR>
 
 vnoremap $1 <esc>`>a)<esc>`<i(<esc>
 vnoremap $2 <esc>`>a]<esc>`<i[<esc>
@@ -79,9 +86,10 @@ inoremap <C-space> <esc>la
 cnoremap <C-A>		<Home>
 cnoremap <C-E>		<End>
 cnoremap <C-K>		<C-U>
-
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
+cnoremap <C-B>      <left>
+cnoremap <C-F>      <right>
+cnoremap <C-P>      <Up>
+cnoremap <C-N>      <Down>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
@@ -95,11 +103,18 @@ nmap w[ <C-w>3<
 
 noremap <leader>cy "*y
 noremap <leader>cp "*p"
+nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+
+nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 "
 """"
 
 " UI part
-" colorscheme desert
+colorscheme gruvbox 
 
 "autocmd BufEnter * lcd %:p:h
 
@@ -110,6 +125,7 @@ set undodir=~/.config/nvim/undodir
 
 " plugin part
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'morhetz/gruvbox'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'mileszs/ack.vim'
 Plug 'jlanzarotta/bufexplorer'
@@ -192,7 +208,12 @@ call plug#end()
 "     \    "eval_under_cursor" : "<leader><F12>",
 "     \    "eval_visual" : "<Leader>e",
 "     \}
-
+let g:vebugger_leader="" 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let g:ycm_complete_in_comments = 1 
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+let g:ycm_key_list_previous_completion=['<C-TAB>','Up']
 let $NVIM_TUI_ENABLE_TRUE_COLOR=0
 let $TERM='iterm2'
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -211,22 +232,22 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$']
 
-let g:terminal_color_0  = '#2e3436'
-let g:terminal_color_1  = '#cc0000'
-let g:terminal_color_2  = '#4e9a06'
-let g:terminal_color_3  = '#c4a000'
-let g:terminal_color_4  = '#3465a4'
-let g:terminal_color_5  = '#75507b'
-let g:terminal_color_6  = '#0b939b'
-let g:terminal_color_7  = '#d3d7cf'
-let g:terminal_color_8  = '#555753'
-let g:terminal_color_9  = '#ef2929'
-let g:terminal_color_10 = '#8ae234'
-let g:terminal_color_11 = '#fce94f'
-let g:terminal_color_12 = '#729fcf'
-let g:terminal_color_13 = '#ad7fa8'
-let g:terminal_color_14 = '#00f5e9'
-let g:terminal_color_15 = '#eeeeec'
+" let g:terminal_color_0  = '#2e3436'
+" let g:terminal_color_1  = '#cc0000'
+" let g:terminal_color_2  = '#4e9a06'
+" let g:terminal_color_3  = '#c4a000'
+" let g:terminal_color_4  = '#3465a4'
+" let g:terminal_color_5  = '#75507b'
+" let g:terminal_color_6  = '#0b939b'
+" let g:terminal_color_7  = '#d3d7cf'
+" let g:terminal_color_8  = '#555753'
+" let g:terminal_color_9  = '#ef2929'
+" let g:terminal_color_10 = '#8ae234'
+" let g:terminal_color_11 = '#fce94f'
+" let g:terminal_color_12 = '#729fcf'
+" let g:terminal_color_13 = '#ad7fa8'
+" let g:terminal_color_14 = '#00f5e9'
+" let g:terminal_color_15 = '#eeeeec'
 
 
 set foldmethod=indent
@@ -241,6 +262,30 @@ set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 
 " function part
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
+
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
+
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
+
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
+endfunction
+
+function! CmdLine(str)
+    call feedkeys(":" . a:str)
+endfunction 
+
 function! Redir(cmd)
 	for win in range(1, winnr('$'))
 		if getwinvar(win, 'scratch')
@@ -262,7 +307,7 @@ endfunction
 
 command! -nargs=1 -complete=command Redir silent call Redir(<f-args>)
 
-" Quick run via <F5>
+" Quick run via <F5> or alias :Werun
 nnoremap <F5> :call <SID>compile_and_run()<CR>
 function! s:compile_and_run()
     exec 'w'
@@ -279,7 +324,7 @@ function! s:compile_and_run()
     endif
 endfunction
 let g:asyncrun_open = 15
-
+command! -nargs=0 Werun silent call <SID>compile_and_run()
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -308,19 +353,13 @@ call SetupCommandAlias("yg","YcmCompleter GoTo")
 call SetupCommandAlias("ygdef","YcmCompleter GoToDefinition")
 call SetupCommandAlias("yginc","YcmCompleter GoToInclude")
 call SetupCommandAlias("ygdec","YcmCompleter GoToDeclaration")
+call SetupCommandAlias("ygdoc","YcmCompleter GetDoc")
 
 
 
 " BufOnly.vim  -  Delete all the buffers except the current/named buffer.
-"
-" Copyright November 2003 by Christian J. Robinson <infynity@onewest.net>
-"
-" Distributed under the terms of the Vim license.  See ":help license".
-"
 " Usage:
-"
 " :Bonly / :BOnly / :Bufonly / :BufOnly [buffer]
-"
 " Without any arguments the current buffer is kept.  With an argument the
 " buffer name/number supplied is kept.
 
