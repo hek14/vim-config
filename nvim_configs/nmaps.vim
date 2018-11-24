@@ -1,9 +1,24 @@
+" For YouCompleteMe
+nnoremap <leader>re :YcmRestartServer<cr>
+nnoremap <leader>gg :YcmCompleter GoTo<cr>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<cr>
+nnoremap <leader>gd  :YcmCompleter GetDoc<cr>
+" For yank stack
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
+" For CtrlP 
+nmap <leader>j :CtrlPMRUFiles<cr>
+
 nmap <leader>o :BufExplorer<cr>
 nmap <leader>f :MRU<CR>
+
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark
 nmap <leader>nf :NERDTreeFind<cr>
+
 nmap <leader>z :Goyo<cr>
+
 nmap <leader>w :w!<cr>
 nmap <space> /
 nmap <c-space> ?
@@ -35,8 +50,8 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
-nmap <leader>g :Ack
-nmap <leader>pp :setlocal paste!<cr>
+nmap <leader>a :Ack  
+" nmap <leader>pp :setlocal paste!<cr>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 

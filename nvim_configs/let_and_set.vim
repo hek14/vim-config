@@ -1,6 +1,8 @@
 "Part: basic settings
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+" For ultiSnips
+let g:UltiSnipsSnippetsDir = '/Users/ke/.local/share/nvim/plugged/vim-snippets/UltiSnips'
 let mapleader = ','
 set spell spelllang=en_us
 set undofile
@@ -27,7 +29,7 @@ set history=1000
 "Part: plugin settings
 " map part
 "ctrlp
-let g:ctrlp_map = '<leader>j'
+let g:ctrlp_map = '<c-p>'
 set undodir=~/.config/nvim/undodir
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=0
@@ -48,3 +50,16 @@ set foldmethod=indent
 set foldlevel=99
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
+
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<C-N>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_keys           = '<Esc>'
