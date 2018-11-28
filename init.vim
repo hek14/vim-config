@@ -7,7 +7,7 @@ source /Users/ke/.config/nvim/nvim_configs/imaps.vim
 source /Users/ke/.config/nvim/nvim_configs/nmaps.vim
 source /Users/ke/.config/nvim/nvim_configs/vmaps.vim
 source /Users/ke/.config/nvim/nvim_configs/autocomplete.vim
-source /Users/ke/.config/nvim/nvim_configs/functions.vim
+source /Users/ke/.config/nvim/nvim_configs/function_and_call.vim
 
 " source ./nvim_configs/deprecated.vim
 " ui part

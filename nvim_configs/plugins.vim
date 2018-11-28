@@ -1,5 +1,9 @@
 " plugin part
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'Shougo/neoyank.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/unite.vim'
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'

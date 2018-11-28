@@ -1,3 +1,13 @@
+" Unite
+" try replace CtrlP
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+" nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+" nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+" nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>o :<c-u>Unite -no-split -start-insert buffer file<cr>
+nnoremap <leader>a :Unite grep:.<cr>
 " For YouCompleteMe
 nnoremap <leader>re :YcmRestartServer<cr>
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
@@ -10,8 +20,9 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " For CtrlP 
 nmap <leader>j :CtrlPMRUFiles<cr>
 
-nmap <leader>o :BufExplorer<cr>
-nmap <leader>f :MRU<CR>
+" try to use Unite to replace BufExplorer and MRU
+" nmap <leader>o :BufExplorer<cr>
+" nmap <leader>f :MRU<CR>
 
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark
@@ -50,7 +61,8 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
-nmap <leader>a :Ack  
+" try to replace ack by Unite grep
+" nmap <leader>a :Ack  
 " nmap <leader>pp :setlocal paste!<cr>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>

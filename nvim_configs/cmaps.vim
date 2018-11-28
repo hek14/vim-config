@@ -8,3 +8,4 @@ cnoremap <C-N>      <Down>
 cmap w!! w !sudo tee > /dev/null %
 cnoremap W w
 cnoremap Q q
+cnoremap <C-l> <C-R>"

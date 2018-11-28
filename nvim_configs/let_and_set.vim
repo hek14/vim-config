@@ -1,6 +1,12 @@
 "Part: basic settings
 " Use deoplete.
 " let g:deoplete#enable_at_startup = 1
+" Unite
+let g:unite_source_history_yank_enable = 1
+" For terminal mode: do not wipe the terminal buffer, try to hide it instead
+autocmd TermOpen * set bufhidden=hide  
+" For vim-bookmarks
+let g:bookmark_highlight_lines = 1
 " For ultiSnips
 let g:UltiSnipsSnippetsDir = '/Users/ke/.local/share/nvim/plugged/vim-snippets/UltiSnips'
 let mapleader = ','
@@ -52,14 +58,14 @@ set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 
 
-let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_use_default_mapping=0
 
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<C-N>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_keys           = '<Esc>'
+" " Default mapping
+" let g:multi_cursor_start_word_key      = '<C-n>'
+" let g:multi_cursor_select_all_word_key = '<C-N>'
+" let g:multi_cursor_start_key           = 'g<C-n>'
+" let g:multi_cursor_select_all_key      = 'g<A-n>'
+" let g:multi_cursor_next_key            = '<C-n>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_skip_key            = '<C-x>'
+" let g:multi_cursor_quit_keys           = '<Esc>'
