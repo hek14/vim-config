@@ -1,13 +1,14 @@
 set runtimepath+=/Users/ke/.config/nvim/nvim_configs
-source /Users/ke/.config/nvim/nvim_configs/plugins.vim
-source /Users/ke/.config/nvim/nvim_configs/let_and_set.vim
-source /Users/ke/.config/nvim/nvim_configs/cmaps.vim
-source /Users/ke/.config/nvim/nvim_configs/tmaps.vim
-source /Users/ke/.config/nvim/nvim_configs/imaps.vim
-source /Users/ke/.config/nvim/nvim_configs/nmaps.vim
-source /Users/ke/.config/nvim/nvim_configs/vmaps.vim
-source /Users/ke/.config/nvim/nvim_configs/autocomplete.vim
-source /Users/ke/.config/nvim/nvim_configs/function_and_call.vim
+source ~/.config/nvim/nvim_configs/plugins.vim
+source ~/.config/nvim/nvim_configs/let_and_set.vim
+source ~/.config/nvim/nvim_configs/cmaps.vim
+source ~/.config/nvim/nvim_configs/tmaps.vim
+source ~/.config/nvim/nvim_configs/imaps.vim
+source ~/.config/nvim/nvim_configs/nmaps.vim
+source ~/.config/nvim/nvim_configs/vmaps.vim
+source ~/.config/nvim/nvim_configs/autocomplete.vim
+source ~/.config/nvim/nvim_configs/function_and_call.vim
+source ~/.config/nvim/nvim_configs/unite_config.vim
 
 " source ./nvim_configs/deprecated.vim
 " ui part

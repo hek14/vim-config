@@ -1,25 +1,4 @@
 " function part and command part
-" integrate vim-bookmarks with unite.vim
-call unite#custom#profile('source/vim_bookmarks', 'context', {
-	\   'winheight': 13,
-	\   'direction': 'botright',
-	\   'start_insert': 1,
-	\   'keep_focus': 1,
-	\   'no_quit': 1,
-	\ })
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" in the Unite buffer: Buffers
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  imap <silent><buffer><expr> <C-s> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-endfunction
-
 " Redirection to quickfix buffer
 function! Redir(cmd)
 	for win in range(1, winnr('$'))

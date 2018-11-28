@@ -1,4 +1,10 @@
 " YouCompleteMe settings
+" For YouCompleteMe
+nnoremap <leader>re :YcmRestartServer<cr>
+nnoremap <leader>gg :YcmCompleter GoTo<cr>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<cr>
+nnoremap <leader>gd  :YcmCompleter GetDoc<cr>
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments = 1 

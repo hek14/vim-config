@@ -1,19 +1,3 @@
-" Unite
-" try replace CtrlP
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-" nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-" nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-" nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <leader>o :<c-u>Unite -no-split -start-insert buffer file<cr>
-nnoremap <leader>a :Unite grep:.<cr>
-" For YouCompleteMe
-nnoremap <leader>re :YcmRestartServer<cr>
-nnoremap <leader>gg :YcmCompleter GoTo<cr>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<cr>
-nnoremap <leader>gc :YcmCompleter GoToDeclaration<cr>
-nnoremap <leader>gd  :YcmCompleter GetDoc<cr>
 " For yank stack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
