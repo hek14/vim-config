@@ -1,6 +1,4 @@
 "Part: basic settings
-" Use deoplete.
-" let g:deoplete#enable_at_startup = 1
 " For terminal mode: do not wipe the terminal buffer, try to hide it instead
 autocmd TermOpen * set bufhidden=hide  
 " For vim-bookmarks
@@ -33,7 +31,7 @@ set history=1000
 "Part: plugin settings
 " map part
 "ctrlp
-let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_map = '<c-p>'
 set undodir=~/.config/nvim/undodir
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=0

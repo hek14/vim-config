@@ -1,11 +1,42 @@
+" For fzf 
+" Fzf ------------------------------
+" file finder mapping
+nmap <leader>e :Files<CR>
+" tags (symbols) in current file finder mapping
+nmap <leader>g :BTag<CR>
+" tags (symbols) in all files finder mapping
+nmap <leader>G :Tag<CR>
+" general code finder in current file mapping
+nmap <leader>f :BLines<CR>
+" general code finder in all files mapping
+nmap <leader>F :Lines<CR>
+" commands finder mapping
+nmap <leader>C :Commands<CR>
+" most recently uesed file MRU
+nmap <silent> <leader>j :History<CR>
+" to be able to call CtrlP with default search text
+"function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+    "execute ':CtrlP' . a:ctrlp_command_end
+    "call feedkeys(a:search_text)
+"endfunction
+" same as previous mappings, but calling with current word as default text
+"nmap <leader>wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+"nmap <leader>wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
+"nmap <leader>wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+"nmap <leader>we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+"nmap <leader>pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+"nmap <leader>wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
+"nmap <leader>wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
+
+
 " For yank stack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " For CtrlP 
-nmap <leader>j :CtrlPMRUFiles<cr>
+" nmap <leader>j :CtrlPMRUFiles<cr>
 
 nmap <leader>o :BufExplorer<cr>
-nmap <leader>f :MRU<CR>
+" nmap <leader>f :MRU<CR>
 
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark
@@ -44,7 +75,10 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
-nmap <leader>a :Ack 
+"" Ack.vim ------------------------------
+" mappings recursive search
+nmap ,k :Ack 
+nmap ,K :Ack <cword><CR> 
 " nmap <leader>pp :setlocal paste!<cr>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
