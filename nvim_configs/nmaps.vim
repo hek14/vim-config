@@ -4,9 +4,8 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " For CtrlP 
 nmap <leader>j :CtrlPMRUFiles<cr>
 
-" try to use Unite to replace BufExplorer and MRU
-" nmap <leader>o :BufExplorer<cr>
-" nmap <leader>f :MRU<CR>
+nmap <leader>o :BufExplorer<cr>
+nmap <leader>f :MRU<CR>
 
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark
@@ -23,8 +22,8 @@ nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
 " Close current buffer
-" map <leader>bd :bdelete<cr>
-nmap <leader>bd :Bclose<cr>:tabclose<cr>gT
+nmap <silent> <leader>bd :bdelete<cr>
+" nmap <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all buffers
 nmap <leader>ba :bufdo bd<cr>
 " close all buffers except this one
@@ -45,8 +44,7 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
-" try to replace ack by Unite grep
-" nmap <leader>a :Ack  
+nmap <leader>a :Ack 
 " nmap <leader>pp :setlocal paste!<cr>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
@@ -58,10 +56,6 @@ nmap wo <C-w>o
 nmap we <C-w>=
 nmap w] <C-w>3>
 nmap w[ <C-w>3<
-" tmap <C-w>j <C-\><C-n><C-w>j 
-" tmap <C-w>k <C-\><C-n><C-w>k
-" tmap <C-w>h <C-\><C-n><C-w>h
-" tmap <C-w>l <C-\><C-n><C-w>l
 noremap <leader>cy "*y
 noremap <leader>cp "*p"
 nnoremap <silent> [oh :call gruvbox#hls_show()<CR>

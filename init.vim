@@ -8,7 +8,8 @@ source ~/.config/nvim/nvim_configs/nmaps.vim
 source ~/.config/nvim/nvim_configs/vmaps.vim
 source ~/.config/nvim/nvim_configs/autocomplete.vim
 source ~/.config/nvim/nvim_configs/function_and_call.vim
-source ~/.config/nvim/nvim_configs/unite_config.vim
+" source ~/.config/nvim/nvim_configs/unite_config.vim
+" source ~/.config/nvim/nvim_configs/denite_config.vim
 
 " source ./nvim_configs/deprecated.vim
 " ui part
