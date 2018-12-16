@@ -27,12 +27,16 @@ let g:jedi#completions_enabled = 0
 " All these mappings work only for python code:
 " Go to definition
 let g:jedi#goto_command = ',d'
+" nnoremap ,d ,d zz
 " Find usages
 let g:jedi#usages_command = ',u'
 " Find assignments
 let g:jedi#goto_assignments_command = ',a'
+" nnoremap ,a ,a zz
 nmap ,D :tab split<CR>:call jedi#goto()<CR>
+" ,r to rename
 nnoremap <silent> <buffer> ,r :call jedi#rename()<cr>
+" K to Pydoc
 
 " Use deoplete.
 " needed so deoplete can auto select the first suggestion
@@ -52,22 +56,24 @@ let g:deoplete#enable_smart_case = 1
 " complete with words from any opened file
 let g:context_filetype#same_filetypes = {}
 let g:context_filetype#same_filetypes._ = '_'
+" disable autocompletion
+" call deoplete#custom#option('auto_complete', v:false)
 " " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-" " <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 
-" function! s:my_cr_function() abort
-"   return deoplete#close_popup() . "\<CR>"
-" endfunction
-
-" inoremap <silent><expr> <TAB>
-" 		\ pumvisible() ? "\<C-n>" :
-" 		\ <SID>check_back_space() ? "\<TAB>" :
-" 		\ deoplete#mappings#manual_complete()
-" function! s:check_back_space() abort "{{{
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction"}}}
+inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ deoplete#mappings#manual_complete()
+" use tab to forward cycle
+function! s:check_back_space() abort "{{{
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}

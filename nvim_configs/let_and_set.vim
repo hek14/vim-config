@@ -1,4 +1,16 @@
 "Part: basic settings
+" set neovim python env path:
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+
+" use 256 colors when possible
+" if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
+" 	let &t_Co = 256
+"     colorscheme fisa
+" else
+"     colorscheme delek
+" endif
+colorscheme gruvbox
 " For terminal mode: do not wipe the terminal buffer, try to hide it instead
 autocmd TermOpen * set bufhidden=hide  
 " For vim-bookmarks

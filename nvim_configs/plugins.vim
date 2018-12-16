@@ -1,12 +1,17 @@
 " plugin part
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'vim-scripts/VisIncr'
 " Plug 'Shougo/neoyank.vim'
 " Plug 'Shougo/neomru.vim'
 " Ugly Unite,step to denite.vim
 " Plug 'Shougo/denite.nvim' 
 " Plug 'Shougo/unite.vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'fisadev/fisa-vim-colorscheme'
+Plug 'Shougo/context_filetype.vim'
+
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'morhetz/gruvbox'

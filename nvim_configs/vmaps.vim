@@ -1,5 +1,5 @@
 vnoremap av :call VisualSelection('av', '')<CR>
-vnoremap <silent> <leader>r :call VisualSelection('replace','')<CR>
+vnoremap <silent> <leader>R :call VisualSelection('replace','')<CR>
 vnoremap <silent> * :call VisualSelection('b')<CR>
 vnoremap <silent> # :call VisualSelection('f')<CR>
 

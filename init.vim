@@ -13,9 +13,9 @@ source ~/.config/nvim/nvim_configs/function_and_call.vim
 
 " source ./nvim_configs/deprecated.vim
 " ui part
-colorscheme gruvbox 
+" colorscheme gruvbox 
 filetype plugin indent on
-
+highlight LineNr ctermfg=grey ctermbg=white
 au bufread,bufnewfile *.nginx set ft=nginx
 au bufread,bufnewfile */etc/nginx/* set ft=nginx
 au bufread,bufnewfile */usr/local/nginx/conf/* set ft=nginx

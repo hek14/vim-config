@@ -1,3 +1,8 @@
+" quickly replace using cgn
+nnoremap rep bvey/<C-R>"<CR>Ncgn
+" auto centered when g; and g,
+nnoremap g; g;zz
+nnoremap g, g,zz
 " For fzf 
 " Fzf ------------------------------
 " file finder mapping
@@ -13,7 +18,7 @@ nmap <leader>F :Lines<CR>
 " commands finder mapping
 nmap <leader>C :Commands<CR>
 " most recently uesed file MRU
-nmap <silent> <leader>j :History<CR>
+nmap <silent> <c-p> :History<CR>
 " to be able to call CtrlP with default search text
 "function! CtrlPWithSearchText(search_text, ctrlp_command_end)
     "execute ':CtrlP' . a:ctrlp_command_end
@@ -28,6 +33,9 @@ nmap <silent> <leader>j :History<CR>
 "nmap <leader>wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
 "nmap <leader>wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
 
+" stay at current place while using # and * to search <cword>
+nnoremap * *N
+noremap # #N
 
 " For yank stack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
@@ -77,28 +85,28 @@ nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 "" Ack.vim ------------------------------
 " mappings recursive search
-nmap ,k :Ack 
-nmap ,K :Ack <cword><CR> 
+" nmap ,k :Ack 
+" nmap ,K :Ack <cword><CR> 
 " nmap <leader>pp :setlocal paste!<cr>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
-nmap w= <C-w>3+
-nmap w- <C-w>3-
+nmap w= <C-w>10+
+nmap w- <C-w>10-
+nmap w] <C-w>10>
+nmap w[ <C-w>10<
 nmap wc <C-w>c
 nmap wo <C-w>o
 nmap we <C-w>=
-nmap w] <C-w>3>
-nmap w[ <C-w>3<
 noremap <leader>cy "*y
 noremap <leader>cp "*p"
 nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
 nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
 nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
 
-nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+" nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+" nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+" nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 " function used by mappings
 command! Bclose call <SID>BufcloseCloseIt()
