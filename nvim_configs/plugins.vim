@@ -1,5 +1,7 @@
 " plugin part
 call plug#begin('~/.local/share/nvim/plugged')
+" Plug 'vimim/vimim'
+" Plug 'VoldikSS/vim-searchme'
 Plug 'vim-scripts/VisIncr'
 " Plug 'Shougo/neoyank.vim'
 " Plug 'Shougo/neomru.vim'
