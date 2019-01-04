@@ -1,7 +1,23 @@
 "Part: basic settings
+let g:instant_markdown_autostart = 0
+" set 256 colors
+set t_Co=256
+" vimtex settings
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_compiler_latexmk_engines = {
+      \ '_'                : '-xelatex',
+      \ 'pdflatex'         : '-pdf',
+      \ 'dvipdfex'         : '-pdfdvi',
+      \ 'lualatex'         : '-lualatex',
+      \ 'xelatex'          : '-xelatex',
+      \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+      \ 'context (luatex)' : '-pdf -pdflatex=context',
+      \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+      \}
+
 " set neovim python env path:
 let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " use 256 colors when possible
 " if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
@@ -64,16 +80,3 @@ set foldmethod=indent
 set foldlevel=99
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
-
-
-" let g:multi_cursor_use_default_mapping=0
-
-" " Default mapping
-" let g:multi_cursor_start_word_key      = '<C-n>'
-" let g:multi_cursor_select_all_word_key = '<C-N>'
-" let g:multi_cursor_start_key           = 'g<C-n>'
-" let g:multi_cursor_select_all_key      = 'g<A-n>'
-" let g:multi_cursor_next_key            = '<C-n>'
-" let g:multi_cursor_prev_key            = '<C-p>'
-" let g:multi_cursor_skip_key            = '<C-x>'
-" let g:multi_cursor_quit_keys           = '<Esc>'

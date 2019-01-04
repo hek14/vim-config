@@ -1,12 +1,21 @@
 " plugin part
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'easymotion/vim-easymotion'
+Plug 'shime/vim-livedown'
+Plug 'chrisbra/NrrwRgn'
+"For markdown"
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc-after'
+
+" Quick triggle search in google
+Plug 'VoldikSS/vim-searchme'
+Plug 'mhinz/neovim-remote'
+Plug 'lervag/vimtex'
 Plug 'vim-scripts/VisIncr'
-" Plug 'Shougo/neoyank.vim'
-" Plug 'Shougo/neomru.vim'
-" Ugly Unite,step to denite.vim
-" Plug 'Shougo/denite.nvim' 
-" Plug 'Shougo/unite.vim'
-Plug 'myusuf3/numbers.vim'
+" Plug 'myusuf3/numbers.vim'
 Plug 'fisadev/fisa-vim-colorscheme'
 Plug 'Shougo/context_filetype.vim'
 
@@ -43,7 +52,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'groenewege/vim-less'
-Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/nginx.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

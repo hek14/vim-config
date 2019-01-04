@@ -6,6 +6,6 @@ cnoremap <C-F>      <right>
 cnoremap <C-P>      <Up>
 cnoremap <C-N>      <Down>
 cmap w!! w !sudo tee > /dev/null %
-" cnoremap W w
+cnoremap W w
 cnoremap Q q
 " cnoremap <C-v> <C-R>"

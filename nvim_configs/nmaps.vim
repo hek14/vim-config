@@ -1,8 +1,10 @@
+" For English spell checking
+nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
+" quickly triggle search-me
+nnoremap <leader>s :SearchInGoogle 
+nnoremap <leader>S :SearchCurrentText<cr>
 " quickly replace using cgn
-nnoremap rep bvey/<C-R>"<CR>Ncgn
-" auto centered when g; and g,
-nnoremap g; g;zz
-nnoremap g, g,zz
+nnoremap rep yiw/<C-R>"<CR>Ncgn
 " For fzf 
 " Fzf ------------------------------
 " file finder mapping
@@ -18,24 +20,7 @@ nmap <leader>F :Lines<CR>
 " commands finder mapping
 nmap <leader>C :Commands<CR>
 " most recently uesed file MRU
-nmap <silent> <c-p> :History<CR>
-" to be able to call CtrlP with default search text
-"function! CtrlPWithSearchText(search_text, ctrlp_command_end)
-    "execute ':CtrlP' . a:ctrlp_command_end
-    "call feedkeys(a:search_text)
-"endfunction
-" same as previous mappings, but calling with current word as default text
-"nmap <leader>wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
-"nmap <leader>wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
-"nmap <leader>wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
-"nmap <leader>we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
-"nmap <leader>pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
-"nmap <leader>wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
-"nmap <leader>wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
-
-" stay at current place while using # and * to search <cword>
-nnoremap * *N
-noremap # #N
+nmap <silent> <leader>m :History<CR>
 
 " For yank stack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
@@ -68,45 +53,38 @@ nmap <leader>ba :bufdo bd<cr>
 " close all buffers except this one
 nmap <leader>bo :BufOnly<cr>
 
-nmap <leader>tn :tabnext<cr>
+nmap tn :tabnext<cr>
 "also gt
-nmap <leader>tp :tabprevious<cr>
+nmap tp :tabprevious<cr>
 " alse gT
-nmap <leader>to :tabonly<cr>
-nmap <leader>tc :tabclose<cr>
-nmap <leader>tt :tabnew<cr>
-nmap <leader>tf :tabfind 
-nmap <leader>tm :tabmove
+nmap to :tabonly<cr>
+nmap tc :tabclose<cr>
+nmap tt :tabnew<cr>
+nmap tf :tabfind 
+nmap tm :tabmove
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-nmap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+nmap te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 
 nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 "" Ack.vim ------------------------------
 " mappings recursive search
-" nmap ,k :Ack 
-" nmap ,K :Ack <cword><CR> 
+nmap ,a :Ack 
+nmap ,A :Ack <cword><CR> 
 " nmap <leader>pp :setlocal paste!<cr>
 
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
-nmap w= <C-w>10+
-nmap w- <C-w>10-
-nmap w] <C-w>10>
-nmap w[ <C-w>10<
-nmap wc <C-w>c
-nmap wo <C-w>o
-nmap we <C-w>=
+nmap <C-w>+ <C-w>10+
+nmap <C-w>- <C-w>10-
+nmap <C-w>> <C-w>10>
+nmap <C-w>< <C-w>10<
 noremap <leader>cy "*y
-noremap <leader>cp "*p"
+noremap <leader>cp "*p
 nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
 nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
 nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-
-" nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-" nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-" nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 " function used by mappings
 command! Bclose call <SID>BufcloseCloseIt()

@@ -56,6 +56,11 @@ let g:deoplete#enable_smart_case = 1
 " complete with words from any opened file
 let g:context_filetype#same_filetypes = {}
 let g:context_filetype#same_filetypes._ = '_'
+" Latex completion with deoplete
+call deoplete#custom#var('omni', 'input_patterns', {
+        \ 'tex': g:vimtex#re#deoplete
+        \})
+
 " disable autocompletion
 " call deoplete#custom#option('auto_complete', v:false)
 " " <C-h>, <BS>: close popup and delete backword char.
