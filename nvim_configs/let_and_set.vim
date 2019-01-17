@@ -1,4 +1,23 @@
 "Part: basic settings
+" For textobj-python
+call textobj#user#map('python', {
+      \   'class': {
+      \     'select-a': '<buffer>ac',
+      \     'select-i': '<buffer>ic',
+      \     'move-n': '<buffer>]pc',
+      \     'move-p': '<buffer>[pc',
+      \   },
+      \   'function': {
+      \     'select-a': '<buffer>af',
+      \     'select-i': '<buffer>if',
+      \     'move-n': '<buffer>]pf',
+      \     'move-p': '<buffer>[pf',
+      \   }
+      \ })
+"Input method switching
+let g:XkbSwitchEnabled = 1
+set hlsearch
+set incsearch
 let g:instant_markdown_autostart = 0
 " set 256 colors
 set t_Co=256

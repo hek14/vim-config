@@ -1,8 +1,10 @@
 " For instant-preview for markdown file
 au bufread,bufnewfile *.md,*.txt set ft=markdown
+" au bufread,bufnewfile *.md,*.txt set ft=tex
 set nofoldenable
 
-nnoremap <leader>ip :<c-u>InstantMarkdownPreview<CR>
+" nnoremap <leader>ip :<c-u>InstantMarkdownPreview<CR>
+nnoremap <leader>5 :Pandoc! pdf -V mainfont='Songti SC'<CR>
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
@@ -15,6 +17,10 @@ function! s:align()
   endif
 endfunction
 
+nnoremap <BS> :MdwiReturn<CR>
+function! MdwiWriteTitle(word)
+   return 'normal!\ a# '.strftime('%c').' - '.escape(a:word, ' \').'\<esc>'
+endfunction
 
 " vim-markdown for syntax, its settings
 let g:vim_markdown_folding_disabled = 0
@@ -31,3 +37,5 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 " second, do not use its syntax
 let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#command#autoexec_on_writes = 0
+let g:pandoc#command#autoexec_command = "Pandoc! pdf -V mainfont='Songti SC'"

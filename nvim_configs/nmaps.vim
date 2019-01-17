@@ -1,3 +1,4 @@
+nmap / /\v
 " For English spell checking
 nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
 " quickly triggle search-me

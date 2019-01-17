@@ -20,10 +20,10 @@ au bufread,bufnewfile */usr/local/nginx/conf/* set ft=nginx
 au bufread,bufnewfile nginx.conf set ft=nginx
 
 " Input method
-nmap <silent> <esc> <esc>:call Change_input_method()<CR>
-imap <silent> <esc> <esc>:call Change_input_method()<CR>
-vmap <silent> <esc> <esc>:call Change_input_method()<CR>
-cmap <silent> <esc> <esc>:call Change_input_method()<CR>
-function! Change_input_method()
-   silent! execute '!/usr/local/bin/im-select com.apple.keylayout.ABC'
-endfunction
+" nmap <silent> <esc> <esc>:call Change_input_method()<CR>
+" imap <silent> <esc> <esc>:call Change_input_method()<CR>
+" vmap <silent> <esc> <esc>:call Change_input_method()<CR>
+" cmap <silent> <esc> <esc>:call Change_input_method()<CR>
+" function! Change_input_method()
+"    silent! execute '!/usr/local/bin/im-select com.apple.keylayout.ABC'
+" endfunction
